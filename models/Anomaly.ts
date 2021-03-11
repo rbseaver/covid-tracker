@@ -1,7 +1,7 @@
-import { Type } from "./Type";
+import { AnomalyType } from "./AnomalyType";
 
 export interface Anomaly {
   date: Date;
-  type: Type;
+  type: AnomalyType;
   original_observation: number;
 }
