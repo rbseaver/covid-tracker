@@ -5,7 +5,7 @@
 
 export default {
   preset: 'ts-jest',
-  testEnvironment: 'node'
+  testEnvironment: 'node',
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -81,9 +81,17 @@ export default {
   //   "tsx",
   //   "node"
   // ],
+  // The root directory that Jest should scan for tests and modules within
+  rootDir: '.',
+
+  // A list of paths to directories that Jest should use to search for files in
+  roots: ['<rootDir>'],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '^@models/(.*)$': '<rootDir>/src/$1',
+    '^@services/(.*)$': '<rootDir>/src/$1'
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -110,18 +118,10 @@ export default {
   // resetModules: false,
 
   // A path to a custom resolver
-  // resolver: undefined,
+  resolver: undefined,
 
   // Automatically restore mock state between every test
   // restoreMocks: false,
-
-  // The root directory that Jest should scan for tests and modules within
-  // rootDir: undefined,
-
-  // A list of paths to directories that Jest should use to search for files in
-  // roots: [
-  //   "<rootDir>"
-  // ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
